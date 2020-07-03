@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grammar- Verb Forms Quiz</title>
+<link href="style.css" rel="stylesheet"/>
+<script src="js/script.js"></script>
+</head>
+<body>
+<img src="logo.png" width= "200" height="100"> 
+<div id="container">
+<header>	
+<h1>Grammar- Verb Forms Quiz</h1>
+</header>
+<section>
+<form name="quizForm" onsubmit="return submitAnswers()">
+<h3>1. She's been ____ to music all day. </h3>
+<input type="radio" name="q1" value="a" id="q1a">a. listen<br>
+<input type="radio" name="q1" value="b" id="q1b">b. listening<br>
+<input type="radio" name="q1" value="c" id="q1c">c. listened<br>
+
+<h3>2. When was the last time you ____ a new shirt? </h3>
+<input type="radio" name="q2" value="a" id="q2a">a. bought<br>
+<input type="radio" name="q2" value="b" id="q2b">b. buying<br>
+<input type="radio" name="q2" value="c" id="q2c">c. buy<br>
+
+<h3>3. Do you still ____ tennis on Sunday? </h3>
+<input type="radio" name="q3" value="a" id="q3a">a. playing<br>
+<input type="radio" name="q3" value="b" id="q3b">b. play<br>
+<input type="radio" name="q3" value="c" id="q3c">c. plays<br>
+
+<h3>4. Ravi ____ in a office </h3>
+<input type="radio" name="q4" value="a" id="q4a">a. working<br>
+<input type="radio" name="q4" value="b" id="q4b">b. works<br>
+<input type="radio" name="q4" value="c" id="q4c">c. work<br>
+<br>
+<h3>5. Stop ____ and listen to me </h3>
+<input type="radio" name="q5" value="a" id="q5a">a. talks<br>
+<input type="radio" name="q5" value="b" id="q5b">b. talking<br>
+<input type="radio" name="q5" value="c" id="q5c">c. talk<br>
+<br>
+<h3>6. i dont know who ____ this wall </h3>
+<input type="radio" name="q6" value="a" id="q6a">a. paint<br>
+<input type="radio" name="q6" value="b" id="q6b">b. painting<br>
+<input type="radio" name="q6" value="c" id="q6c">c. painted<br>
+<br>
+<h3>7. It never ____ here in winter </h3>
+<input type="radio" name="q7" value="a" id="q7a">a. snows<br>
+<input type="radio" name="q7" value="b" id="q7b">b. snow<br>
+<input type="radio" name="q7" value="c" id="q7c">c. snowing<br>
+<br>
+<h3>8. He ____ jazz to pop music </h3>
+<input type="radio" name="q8" value="a" id="q8a">a. prefers<br>
+<input type="radio" name="q8" value="b" id="q8b">b. prefer<br>
+<input type="radio" name="q8" value="c" id="q8c">c. preferring<br>
+<br>
+<h3>9. Simon's ____ living here for 6 months </h3>
+<input type="radio" name="q9" value="a" id="q9a">a. are <br>
+<input type="radio" name="q9" value="b" id="q9b">b. was<br>
+<input type="radio" name="q9" value="c" id="q9c">c. been<br>
+<br>
+<h3>10 Those newspapers ____ in a big truck </h3>
+<input type="radio" name="q10" value="a" id="q10a">a. are delivering<br>
+<input type="radio" name="q10" value="b" id="q10b">b. are delivered<br>
+<input type="radio" name="q10" value="c" id="q10c">c. had delivered<br>
+<br><br>
+<div id="results"></div>
+<input type="submit" value="Submit Answers">
+</form>
+<script>
+function submitAnswers(){
+	var total = 10;
+	var score = 0;
+	
+	// Get User Input
+	var q1 = document.forms["quizForm"]["q1"].value;
+	var q2 = document.forms["quizForm"]["q2"].value;
+	var q3 = document.forms["quizForm"]["q3"].value;
+	var q4 = document.forms["quizForm"]["q4"].value;
+	var q5 = document.forms["quizForm"]["q5"].value;
+	var q6 = document.forms["quizForm"]["q6"].value;
+	var q7 = document.forms["quizForm"]["q7"].value;
+	var q8 = document.forms["quizForm"]["q8"].value;
+	var q9 = document.forms["quizForm"]["q9"].value;
+	var q10 = document.forms["quizForm"]["q10"].value;
+	
+	// validation
+	for(i = 1; i <= total;i++){
+		if(eval ('q'+i) == null || eval ('q'+i) == ''){
+		alert('You missed question '+ i);
+		return false;
+		}
+	}
+	// Set Correct Answers
+	var answers = ["b","a","b","b","b","c","a","a","c","b",]; 
+	
+	// Check Answers
+	for(i = 1; i <= total;i++){
+	if(eval('q'+i) == answers[i - 1]){
+			score++;
+			}
+		}
+		// Display Results
+		var results = document.getElementById('results');
+		results.innerHTML = '<h3>You scored <span>'+score+'</span> out of <span>'+total+'</span></h3>';
+		alert('You Score '+score+' out of ' +total);
+		
+		return false;
+}
+</script>
+</section>
+<footer>
+<p> All Rights Reserved goup Online Learner 2020 </p>
+</footer>
+</div>
+</body>
+</html>
